@@ -1,0 +1,15 @@
+---
+- hosts: all
+  connection: ssh
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks: 
+    - name: Install Web Server
+      yum: name=httpd state=installed
+
+    - name: Install telnet
+      yum: 
+        name: telnet
+        state: latest
+
